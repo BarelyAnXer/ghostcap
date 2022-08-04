@@ -44,6 +44,22 @@ app.get("/api/auth/discord/", async (req, res) => {
 
 });
 
+// app.get("/api/auth/user", async (req, res) => {
+//   try {
+//     const userResponse = await axios.get("https://discord.com/api/v10/users/@me", {
+//       headers: {
+//         "Authorization": `Bearer ${access_token}`
+//       }
+//     })
+//
+//     res.send(response.data)
+//
+//   } catch (error) {
+//     res.send(400)
+//   }
+//
+// })
+
 
 app.listen(PORT, () => {
   console.log(`Running on Port ${PORT}`)
