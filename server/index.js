@@ -2,13 +2,24 @@ import 'dotenv/config'
 import express from "express";
 import axios from "axios"
 import url from "url"
+import session from "express-session"
+
 
 const app = express();
+
+app.use(session({
+  secret: process.env.SESSION_SECRET,
+  resave: false,
+  saveUninitialized: false
+}))
+
 
 const PORT = process.env.PORT || 5000
 
 app.get("/api/auth/discord/", async (req, res) => {
   const {code} = req.query
+
+  console.log(req.session)
 
   if (code) {
     try {
